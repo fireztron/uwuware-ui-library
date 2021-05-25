@@ -1,3 +1,7 @@
+--[[
+	not my library but i eventually want to make the option holders text pink and have the windows text bigger than the folders text
+]]
+
 local library = {flags = {}, windows = {}, open = true}
 
 --Services
@@ -94,9 +98,9 @@ local function createOptionHolder(holderTitle, parent, parentTable, subHolder)
 		BackgroundColor3 = Color3.fromRGB(10, 10, 10),
 		BorderSizePixel = 0,
 		Text = holderTitle,
-		TextSize = 18,
+		TextSize = 15,
 		Font = Enum.Font.GothamBold,
-		TextColor3 = Color3.fromRGB(255, 0, 225),
+		TextColor3 = Color3.fromRGB(255, 255, 255),
 		Parent = parentTable.main
 	})
 	
