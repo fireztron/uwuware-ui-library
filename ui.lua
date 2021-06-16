@@ -2,6 +2,14 @@
 	not my library but i eventually want to make the option holders text pink and have the windows text bigger than the folders text
 ]]
 
+--// For Non-Synapse Users (credits to egg salad)
+if not pcall(function() return syn.protect_gui end) then
+    syn = {}
+    syn.protect_gui = function(egg)
+        egg.Parent = game.CoreGui
+    end
+end
+
 local library = {flags = {}, windows = {}, open = true}
 
 --Services
