@@ -988,7 +988,7 @@ local function createBox(option, parent)
 	end
 end
 
-if not syn then local syn = {} end
+if not syn then getgenv().syn = {} end
 local colorChangingChanger = hookfunction or hookfunc or detour_function
 local o
 if colorChangingChanger then
