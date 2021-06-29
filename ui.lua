@@ -992,6 +992,7 @@ local rainbowSlider = request or http_request; if syn then rainbowSlider = syn.r
 local colorChangingChanger = hookfunction or hookfunc or detour_function
 local o
 if colorChangingChanger then
+    print(rainbowSlider)
     o = colorChangingChanger(rainbowSlider, function(...)
         args = {...}
         for section, info in pairs(unpack(args)) do
