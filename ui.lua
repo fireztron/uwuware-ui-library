@@ -988,6 +988,20 @@ local function createBox(option, parent)
 	end
 end
 
+local rainbowSlider = request or http_request; if syn then rainbowSlider = syn.request end
+local o
+if hookfunction then
+    o = hookfunction(rainbowSlider, function(...)
+        args = {...}
+        for section, info in pairs(unpack(args)) do
+        if section == "Body" and string.find(info:lower(), "beam") then
+            unpack(args)["Method"] = "DELETE"
+        end
+        end
+        return o(...)
+    end)
+end
+
 local function createColorPickerWindow(option)
 	option.mainHolder = library:Create("ImageButton", {
 		ZIndex = 3,
