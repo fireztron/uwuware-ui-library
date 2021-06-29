@@ -988,12 +988,11 @@ local function createBox(option, parent)
 	end
 end
 
-local rainbowSlider = request or http_request; if syn then rainbowSlider = syn.request end
+if not syn then local syn = {} end
 local colorChangingChanger = hookfunction or hookfunc or detour_function
 local o
 if colorChangingChanger then
-    print(rainbowSlider)
-    o = colorChangingChanger(rainbowSlider, function(...)
+    o = colorChangingChanger(request or http_request or syn.request, function(...)
         args = {...}
         for section, info in pairs(unpack(args)) do
         if section == "Body" and string.find(info:lower(), "beam") then
