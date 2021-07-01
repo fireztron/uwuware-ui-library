@@ -3,7 +3,7 @@
 ]]
 
 --// For Non-Synapse Users (credits to egg salad)
-if not pcall(function() return islclosure(get_hidden_gui) and islclosure(hiddenUI) and syn.protect_gui end) then
+if not pcall(function() return syn.protect_gui end) then
     syn = {}
     syn.protect_gui = function(egg)
         egg.Parent = game.CoreGui
