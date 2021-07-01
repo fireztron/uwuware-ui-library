@@ -1657,6 +1657,7 @@ function library:Init()
 			loadOptions(window)
 		end
 	end
+	return self.base
 end
 
 function library:Close()
