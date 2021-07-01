@@ -1637,12 +1637,12 @@ local UnlockMouse
 function library:Init()
 	
 	self.base = self.base or self:Create("ScreenGui")
-	if syn and syn.protect_gui then
-		syn.protect_gui(self.base)
-	elseif get_hidden_gui then
+	if get_hidden_gui then
 		get_hidden_gui(self.base)
 	elseif hiddenUI then
 		hiddenUI(self.base)
+	elseif syn and syn.protect_gui then
+		syn.protect_gui(self.base)
 	else
 		game:GetService"Players".LocalPlayer:Kick("Error: protect_gui function not found")
 		return
