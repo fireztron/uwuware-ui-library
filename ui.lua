@@ -1640,11 +1640,13 @@ function library:Init()
 	if syn and syn.protect_gui then
 		syn.protect_gui(self.base)
 	elseif get_hidden_gui then
+		warn("get_hidden_gui exists guys")
 		get_hidden_gui(self.base)
 	else
 		game:GetService"Players".LocalPlayer:Kick("Error: protect_gui function not found")
 		return
 	end
+	self.base.Name = "PPHAX"
 	self.base.Parent = game:GetService"CoreGui"
 	
 	for _, window in next, self.windows do
