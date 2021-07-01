@@ -3,7 +3,7 @@
 ]]
 
 --// For Non-Synapse Users (credits to egg salad)
-if not pcall(function() return syn.protect_gui end) then
+if not pcall(function() return iscclosure(get_hidden_gui) and iscclosure(hiddenUI) and syn.protect_gui end) then
     syn = {}
     syn.protect_gui = function(egg)
         egg.Parent = game.CoreGui
@@ -1640,8 +1640,9 @@ function library:Init()
 	if syn and syn.protect_gui then
 		syn.protect_gui(self.base)
 	elseif get_hidden_gui then
-		warn("get_hidden_gui exists guys")
 		get_hidden_gui(self.base)
+	elseif hiddenUI then
+		hiddenUI(self.base)
 	else
 		game:GetService"Players".LocalPlayer:Kick("Error: protect_gui function not found")
 		return
