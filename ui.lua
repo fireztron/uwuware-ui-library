@@ -1,5 +1,6 @@
 --[[
 	not my library but i eventually want to make the option holders text pink and have the windows text bigger than the folders text
+	also added the ability to update the options
 ]]
 
 --// For Non-Synapse Users (credits to egg salad)
@@ -308,6 +309,10 @@ function createToggle(option, parent)
 		self.callback(state)
 	end
 
+    function option:UpdateState()
+		self:SetState(option.state)
+	end
+
 	if option.state then
 		delay(1, function() option.callback(true) end)
 	end
@@ -503,6 +508,10 @@ local function createBind(option, parent)
 		tweenService:Create(round, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = inContact and Color3.fromRGB(60, 60, 60) or Color3.fromRGB(40, 40, 40)}):Play()
 		round.Size = UDim2.new(0, -textService:GetTextSize(bindinput.Text, 15, Enum.Font.Gotham, Vector2.new(9e9, 9e9)).X - 16, 1, -10)	
 	end
+
+    function option:UpdateKey()
+		self:SetKey(option.key)
+	end
 end
 
 local function createSlider(option, parent)
@@ -654,6 +663,10 @@ local function createSlider(option, parent)
 		self.value = value
 		inputvalue.Text = value
 		self.callback(value)
+	end
+
+    function option:UpdateValue()
+		self:SetValue(option.value)
 	end
 end
 
@@ -865,6 +878,10 @@ local function createList(option, parent, holder)
 		listvalue.Text = self.value
 		self.callback(value)
 	end
+
+    function option:UpdateValue()
+		self:SetValue(option.state)
+	end
 	
 	function option:Close()
 		library.activePopup = nil
@@ -985,6 +1002,10 @@ local function createBox(option, parent)
 		self.value = tostring(value)
 		inputvalue.Text = self.value
 		self.callback(value, enter)
+	end
+
+    function option:UpdateValue()
+		self:SetValue(option.state)
 	end
 end
 
@@ -1438,6 +1459,10 @@ local function createColor(option, parent, holder)
 		library.flags[self.flag] = newColor
 		self.color = newColor
 		self.callback(newColor)
+	end
+
+    function option:UpdateColor()
+		self:SetColor(option.color)
 	end
 	
 	function option:Close()
