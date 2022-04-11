@@ -1,6 +1,6 @@
 --[[
 	not my library but i eventually want to make the option holders text pink and have the windows text bigger than the folders text
-	also added the ability to update the options
+    also added the ability to update the options
 ]]
 
 --// For Non-Synapse Users (credits to egg salad)
@@ -880,7 +880,7 @@ local function createList(option, parent, holder)
 	end
 
     function option:UpdateValue()
-		self:SetValue(option.state)
+		self:SetValue(option.value)
 	end
 	
 	function option:Close()
@@ -1005,7 +1005,7 @@ local function createBox(option, parent)
 	end
 
     function option:UpdateValue()
-		self:SetValue(option.state)
+		self:SetValue(option.value)
 	end
 end
 
